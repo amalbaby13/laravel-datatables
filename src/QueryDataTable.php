@@ -227,7 +227,7 @@ class QueryDataTable extends DataTableAbstract
             $table = $this->connection->raw('('.$builder->toSql().') count_row_table');
 
             return $this->connection->table($table)
-                ->setBindings($builder->getBindings());
+                ->setBindings($builder->getQuery()->getBindings());
         }
 
         $row_count = $this->wrap('row_count');
